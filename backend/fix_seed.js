@@ -1,0 +1,1 @@
+require("fs").writeFileSync("src/seed.ts", require("fs").readFileSync("src/seed.ts","utf8"))
