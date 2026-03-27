@@ -1,4 +1,4 @@
-// frontend/src/components/views/clientes/styles.ts
+// frontend/src/components/views/equipamentos/styles.ts
 
 import styled from 'styled-components';
 
@@ -19,24 +19,15 @@ export const SearchWrap = styled.div`
   max-width: 380px;
 `;
 
-export const Avatar = styled.div`
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--brand-400);
-  color: #fff;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-`;
-
-export const ClientCell = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
+export const TypeBadge = styled.span`
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: #5B21B6;
+  background: #EDE9FE;
+  border: 1px solid #DDD6FE;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
 `;
 
 export const FormSection = styled.div`
@@ -67,7 +58,7 @@ export const ActionButtons = styled.div`
   gap: 4px;
 `;
 
-export const ActionBtn = styled.button<{ $variant: 'edit' | 'delete' | 'details' }>`
+export const ActionBtn = styled.button<{ $variant: 'details' | 'edit' | 'delete' }>`
   width: 28px;
   height: 28px;
   border-radius: 6px;

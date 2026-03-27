@@ -7,8 +7,8 @@ export const HeaderRow = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 20px;
-  margin-top: -20px;
+  margin-bottom: 10px;
+  margin-top: -50px;
 `;
 
 export const Toolbar = styled.div`

@@ -25,7 +25,8 @@ export const TableWrap = styled.div`
 
 export const StyledTable = styled.table`
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   min-width: 600px;
 `;
 
@@ -38,13 +39,16 @@ export const Th = styled.th`
   letter-spacing: 0.04em;
   text-transform: uppercase;
   border-bottom: 1px solid var(--neutral-100);
-  background: var(--neutral-50);
+  background: #ececec;
   white-space: nowrap;
   vertical-align: middle;
   text-align: left;
   position: sticky;
   top: 0;
   z-index: 1;
+
+  &:first-child { border-radius: 8px 0 0 0; }
+  &:last-child  { border-radius: 0 8px 0 0; }
 `;
 
 export const TBody = styled.tbody<{ $clickable: boolean }>`
@@ -60,6 +64,7 @@ export const TBody = styled.tbody<{ $clickable: boolean }>`
   tr:last-child td {
     border-bottom: none;
   }
+    
 `;
 
 export const Td = styled.td`

@@ -42,6 +42,19 @@ model User {
   role      Role     @default(ATTENDANT)
   active    Boolean  @default(true)
   avatar    String?
+
+  cpf          String?
+  phone        String?
+  whatsapp     String?
+  birthDate    DateTime?
+  street       String?
+  number       String?
+  complement   String?
+  neighborhood String?
+  city         String?
+  state        String?
+  zip          String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

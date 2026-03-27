@@ -1,103 +1,75 @@
 import styled from 'styled-components';
 
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 18px;
-`;
-
-export const TechCard = styled.div`
-  background: var(--neutral-0);
-  border: 1px solid var(--neutral-100);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  padding: 20px;
-  transition: box-shadow var(--transition);
-
-  &:hover {
-    box-shadow: var(--shadow-md);
-  }
-`;
-
-export const TechHeader = styled.div`
+export const HeaderRow = styled.div`
   display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 12px;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+  margin-top: -50px;
 `;
 
-export const Avatar = styled.div`
-  width: 56px;
-  height: 56px;
+export const Toolbar = styled.div`
+  margin-bottom: 20px;
+`;
+
+export const SearchWrap = styled.div`
+  max-width: 380px;
+`;
+
+export const AvatarSmall = styled.div`
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand-400), var(--brand-600));
-  color: #fff;
-  font-size: 1.25rem;
+  background: #ffffff;
+  border: 1.5px solid #d1d5db;
+  color: #6b7280;
+  font-size: 0.75rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  letter-spacing: 0.04em;
 `;
 
-export const TechInfo = styled.div`
-  flex: 1;
+export const StatusDot = styled.span<{ $active: boolean }>`
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: ${p => p.$active ? '#10b981' : 'var(--neutral-300)'};
+  flex-shrink: 0;
 `;
 
-export const TechName = styled.div`
-  font-weight: 700;
-  font-size: 1rem;
+export const ActionButtons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 `;
 
-export const TechRole = styled.div`
-  font-size: 0.8125rem;
-  color: var(--neutral-500);
-  margin-top: 2px;
-`;
-
-export const ActiveBanner = styled.div`
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  border-radius: var(--radius-md);
-  padding: 8px 12px;
-  font-size: 0.8125rem;
-  color: #92400e;
-  margin-bottom: 4px;
-`;
-
-export const StatRow = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--neutral-100);
-`;
-
-export const Stat = styled.div`
-  text-align: center;
-`;
-
-export const StatValue = styled.div`
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--neutral-900);
-`;
-
-export const StatLabel = styled.div`
-  font-size: 0.75rem;
+export const ActionBtn = styled.button<{ $variant: 'edit' | 'delete' | 'toggle' }>`
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 120ms, color 120ms;
   color: var(--neutral-400);
-  margin-top: 2px;
-`;
 
-export const CardActions = styled.div`
-  margin-top: 14px;
-  display: flex;
-  gap: 8px;
-`;
+  &:hover {
+    color: ${({ $variant }) =>
+      $variant === 'delete' ? '#DC2626' :
+      $variant === 'toggle' ? '#059669' :
+      '#3d00a0'};
 
-export const HeaderRow = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+    background: ${({ $variant }) =>
+      $variant === 'delete' ? '#FEF2F2' :
+      $variant === 'toggle' ? '#ECFDF5' :
+      'rgba(61, 0, 160, 0.08)'};
+  }
 `;
