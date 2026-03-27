@@ -1,6 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
-const spin = keyframes`to { transform: rotate(360deg); }`;
+import styled from 'styled-components';
 
 // ─── layout ───────────────────────────────────────────────────────────────────
 
@@ -9,7 +7,8 @@ export const HeaderRow = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  margin-top: -20px;
 `;
 
 export const Toolbar = styled.div`
@@ -20,38 +19,7 @@ export const SearchWrap = styled.div`
   max-width: 380px;
 `;
 
-// ─── tabela ───────────────────────────────────────────────────────────────────
-
-export const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-
-  th, td {
-    text-align: left;
-    padding: 13px 18px;
-    font-size: 0.875rem;
-  }
-
-  th {
-    font-weight: 600;
-    color: var(--neutral-500);
-    font-size: 0.8rem;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--neutral-100);
-    background: var(--neutral-50);
-    white-space: nowrap;
-  }
-
-  td {
-    border-bottom: 1px solid var(--neutral-100);
-    color: var(--neutral-700);
-  }
-
-  tbody tr { transition: background 120ms; }
-  tbody tr:hover td { background: #FFFBF0; }
-  tbody tr:last-child td { border-bottom: none; }
-`;
+// ─── badge número OS ──────────────────────────────────────────────────────────
 
 export const OSNum = styled.span`
   font-family: var(--font-mono);
@@ -63,60 +31,6 @@ export const OSNum = styled.span`
   padding: 3px 10px;
   border-radius: var(--radius-full);
   white-space: nowrap;
-`;
-
-// ─── estados vazios / loading ─────────────────────────────────────────────────
-
-export const EmptyState = styled.div`
-  text-align: center;
-  padding: 72px 20px;
-  color: var(--neutral-400);
-
-  strong {
-    display: block;
-    font-size: 1rem;
-    color: var(--neutral-600);
-    margin-bottom: 6px;
-  }
-
-  p { font-size: 0.875rem; margin-top: 4px; }
-`;
-
-export const LoadingRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: var(--neutral-400);
-`;
-
-export const Spinner = styled.span`
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--neutral-200);
-  border-top-color: var(--brand-500);
-  border-radius: 50%;
-  animation: ${spin} 0.7s linear infinite;
-  flex-shrink: 0;
-`;
-
-// ─── paginação ────────────────────────────────────────────────────────────────
-
-export const Pagination = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-  border-top: 1px solid var(--neutral-100);
-  font-size: 0.875rem;
-  color: var(--neutral-500);
-`;
-
-export const PagButtons = styled.div`
-  display: flex;
-  gap: 8px;
 `;
 
 // ─── formulário no modal ──────────────────────────────────────────────────────
@@ -143,7 +57,46 @@ export const FormGrid = styled.div<{ $cols?: number }>`
   @media (max-width: 560px) { grid-template-columns: 1fr; }
 `;
 
-// ─── legado (mantidos para não quebrar outros imports) ────────────────────────
+// ─── coluna de ações ──────────────────────────────────────────────────────────
+
+export const ActionButtons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+`;
+
+export const ActionBtn = styled.button<{ $variant: 'details' | 'edit' | 'delete' }>`
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 120ms, color 120ms;
+
+  color: ${({ $variant }) =>
+    $variant === 'delete'  ? 'var(--neutral-400)' :
+    $variant === 'edit'    ? 'var(--neutral-400)' :
+                             'var(--neutral-400)'};
+
+  &:hover {
+    color: ${({ $variant }) =>
+      $variant === 'delete'  ? '#DC2626' :
+      $variant === 'edit'    ? '#3d00a0' :
+                               '#3d00a0'};
+
+    background: ${({ $variant }) =>
+      $variant === 'delete'  ? '#FEF2F2' :
+      $variant === 'edit'    ? 'rgba(61, 0, 160, 0.08)' :
+                               'rgba(61, 0, 160, 0.08)'};
+  }
+`;
+
+// ─── legado ───────────────────────────────────────────────────────────────────
 
 export const Section = styled.div`
   display: flex;

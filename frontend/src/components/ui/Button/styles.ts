@@ -49,7 +49,7 @@ export const StyledButton = styled.button<StyledProps>`
   justify-content: center;
   font-family: 'Inter', 'Segoe UI', sans-serif;
   font-weight: 600;
-  border-radius: ${p => p.$variant === 'login' ? '1000px' : 'var(--radius-md)'};
+  border-radius: 1000px;
   transition: all 0.18s ease;
   white-space: nowrap;
   outline: none;
